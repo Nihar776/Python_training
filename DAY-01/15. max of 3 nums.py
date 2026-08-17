@@ -1,4 +1,5 @@
 a,b,c= map(int,(input("Enter 3 numbers: ").split()))
+
 if a==b==c: 
     print("All numbers are equal")
 elif a>b and a>c:
