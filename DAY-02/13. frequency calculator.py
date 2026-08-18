@@ -1,7 +1,9 @@
 arr= list(map(int,input("Enter space separed numbers: ").split()))
 dic={}
-unique_char= list(set(arr))
-for i in unique_char:
-    dic[i]=arr.count(i)
+for i in arr: 
+    if dic.get(i)==None:
+        dic[i]=1
+    else:
+        dic[i]+=1
 
 print(dic)
