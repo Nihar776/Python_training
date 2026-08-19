@@ -5,5 +5,5 @@ def printOnetoN(n:int,i:int):
     print(i)
 
     printOnetoN(n,i+1)
-
-printOnetoN(5,1)
+n=int(input("Enter number: "))
+printOnetoN(n,1)
