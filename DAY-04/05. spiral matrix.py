@@ -1,23 +1,38 @@
-def spiralMatrix(l:list,i:int,j:int,m:int,n:int,visited):
-    if i==m or j==n or i<0 or j<0 or (i,j) in visited :
+def spiralMatrix(mat:list,top:int,bottom:int,left:int,right:int):
+    if top>bottom or left>right:
         return
-    # Print element
-    print(l[i][j])
-    #Append index of element 
-    visited.append((i,j))
-    # Move Right
-    spiralMatrix(l,i,j+1,m,n,visited)
-    # Move Down
-    spiralMatrix(l,i+1,j,m,n,visited)
-    # Move Left
-    spiralMatrix(l,i,j-1,m,n,visited)
-    # Move Up
-    spiralMatrix(l,i-1,j,m,n,visited)
+    # From Left Move Right →
+    for i in range(left,right+1):
+        LR=mat[top][i]
+        print(mat[top][i])
+    # From Top Move down ↓
+    for i in range(top+1,bottom+1):
+        TB=mat[i][right]
+        print(mat[i][right])
+    # From Right Move Left ←
+    for i in range(right-1,left-1,-1):
+        RL=mat[bottom][i]
+        print(mat[bottom][i])
+    # From Bottom Move Up ↑
+    for i in range(bottom-1,top,-1):
+        BT=mat[i][left]
+        print(mat[i][left])
+    spiralMatrix(mat,top+1,bottom-1,left+1,right-1)
+
+
 
 arr = [
-    [1, 2, 3, 4],
-    [12,13,14,5],
-    [11,16,15,6],
-    [10, 9, 8,7]
+    [1 ,2 ,3 ,4 ,5],
+    [16,17,18,19,6],
+    [15,24,25,20,7],
+    [14,23,22,21,8],
+    [13,12,11,10,9]
+    
 ]
-spiralMatrix(arr,0,0,4,4,[])
+# arr = [
+#     [1, 2, 3, 4],
+#     [12,13,14,5],
+#     [11,16,15,6],
+#     [10, 9, 8,7]
+# ]
+spiralMatrix(arr,0,len(arr)-1,0,len(arr[0])-1)
